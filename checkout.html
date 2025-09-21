@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container narrow">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <label>Name <input type="text" name="name" required></label>
+      <label>Address <textarea name="address" rows="3" required></textarea></label>
+      <label>Email <input type="email" name="email" required></label>
+      <button type="button" id="payBtn" class="btn">Pay ₹49 via UPI</button>
+      <label>Enter UPI Transaction ID <input type="text" name="txnId" required></label>
+      <button type="submit" class="btn">Confirm Order</button>
+    </form>
+  </div>
+</section>
+
+<script>
+document.getElementById('payBtn').addEventListener('click', () => {
+  const upiLink = "upi://pay?pa=9591673567@fma&pn=StixieHub&am=49&cu=INR&tn=Sticker+Pack";
+  window.location.href = upiLink;
+});
+
+document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert("Thank you! Your order has been placed. We'll verify your payment and ship soon.");
+});
+</script>
